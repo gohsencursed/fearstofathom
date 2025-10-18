@@ -1,0 +1,1008 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FEARS TO FATHOM — Shop</title>
+
+
+  <link href="https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <style>
+
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0;background:#070407;color:#e6e6ea;font-family:"VT323",monospace;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;border:0;background:none;color:inherit;cursor:pointer}
+
+  :root{
+    --accent1:#ff2850; 
+    --accent2:#00e6d6; 
+    --muted:#bfc6d6;
+    --card:#0a0a0d;
+    --glass: rgba(255,255,255,0.03);
+  }
+
+
+  body::before{
+    content:"";
+    position:fixed;inset:0;z-index:-3;
+    background:
+      radial-gradient(ellipse at 10% 20%, rgba(0,0,0,0.65), transparent 30%),
+      radial-gradient(ellipse at 90% 80%, rgba(10,0,20,0.6), transparent 30%),
+      linear-gradient(180deg, rgba(10,6,10,0.7), rgba(0,0,0,0.95));
+  }
+  body::after{
+    content:"";
+    position:fixed;inset:0;z-index:-2;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="6" height="6"><rect width="100%" height="100%" fill="%23000000" /><circle cx="1" cy="1" r="0.6" fill="%23ffffff" opacity="0.02"/></svg>');
+    opacity:0.6; mix-blend-mode:soft-light; filter:contrast(0.9) saturate(0.7);
+  }
+  .fog{
+    position:fixed;inset:0;pointer-events:none;z-index:-1;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.02), transparent 20%),
+      radial-gradient(circle at 30% 40%, rgba(255,0,80,0.02), transparent 8%),
+      radial-gradient(circle at 70% 60%, rgba(0,230,214,0.01), transparent 12%);
+    mix-blend-mode:screen; opacity:0.9;
+  }
+
+
+  .page-wrap{max-width:1200px;margin:0 auto;padding:18px}
+  header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:6px 0;border-bottom:1px solid rgba(255,40,80,0.06)}
+  .brand{display:flex;align-items:center;gap:14px}
+  .brand .logo{
+    font-family:"Press Start 2P",monospace;color:var(--accent1); font-size:18px; letter-spacing:1px;
+    text-shadow:0 0 8px rgba(255,40,80,0.3), 0 0 18px rgba(0,230,214,0.06);
+  }
+  .slogan{font-size:12px;color:rgba(255,255,255,0.35)}
+
+  nav ul{display:flex;gap:8px;list-style:none;margin:0;padding:0}
+  nav a{
+    display:inline-block;padding:8px 10px;border-radius:6px;color:var(--accent1);
+    border:1px solid rgba(255,40,80,0.06);
+    transition:transform .14s ease, background .14s ease, box-shadow .14s ease;
+    background:linear-gradient(180deg, rgba(255,40,80,0.02), transparent);
+  }
+  nav a:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,0.6);background:rgba(255,40,80,0.06)}
+
+
+  .hero{display:flex;gap:20px;align-items:center;margin:22px 0}
+  .hero-left{flex:1}
+  .hero-title{
+    font-family:"Press Start 2P",monospace;color:#fff;font-size:40px;line-height:1;position:relative;margin-bottom:8px;
+    text-shadow:0 0 20px rgba(255,40,80,0.08), 0 0 30px rgba(0,230,214,0.04);
+  }
+  .glitch{position:relative;display:inline-block}
+  .glitch::before,.glitch::after{
+    content:attr(data-text);position:absolute;left:0;top:0;width:100%;height:100%;
+    clip-path:polygon(0 0,100% 0,100% 33%,0 33%);opacity:.8;
+  }
+  .glitch::before{color:var(--accent1);transform:translate(-2px,0);mix-blend-mode:screen;opacity:0.6}
+  .glitch::after{color:var(--accent2);transform:translate(2px,0);clip-path:polygon(0 67%,100% 67%,100% 100%,0 100%);opacity:0.45}
+
+  .lead{color:rgba(230,230,240,0.8);margin-bottom:12px;max-width:65%}
+  .hero-cta{display:flex;gap:10px;flex-wrap:wrap}
+  .cta{padding:10px 14px;border-radius:8px;background:linear-gradient(180deg, rgba(255,40,80,0.06), rgba(0,0,0,0.02));border:1px solid rgba(255,40,80,0.08);color:#fff}
+  .cta.ghost{background:transparent;border:1px dashed rgba(255,255,255,0.04);color:var(--accent2)}
+
+  .hero-right{width:320px;display:flex;justify-content:center}
+  .poster{
+    width:260px;height:360px;border-radius:10px;overflow:hidden;border:2px solid rgba(255,40,80,0.12);
+    background:linear-gradient(180deg,#080608,#16060b);position:relative;box-shadow:0 20px 60px rgba(0,0,0,0.8);
+    transform:rotate(-2deg);
+  }
+  .poster .stamp{position:absolute;left:12px;top:12px;padding:6px 8px;border-radius:4px;background:rgba(255,40,80,0.9);color:#fff;font-size:11px;letter-spacing:1px}
+  .poster .big{position:absolute;left:14px;bottom:14px;color:rgba(255,255,255,0.06);font-size:56px;font-weight:800;letter-spacing:6px}
+  .poster::after{content:"";position:absolute;inset:0;background-image:linear-gradient(transparent 50%, rgba(255,255,255,0.02) 50%);opacity:0.35;mix-blend-mode:overlay}
+
+  .poster-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+
+  .container{margin-top:18px}
+  section{display:none}
+  section.active{display:block}
+  h2.section-title{font-size:20px;color:var(--accent2);margin-bottom:8px;letter-spacing:1px}
+
+
+  .episodes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+  .episode-card{
+    background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+    border:1px solid rgba(255,40,80,0.06);border-radius:8px;overflow:hidden;display:flex;flex-direction:column;
+    transition:transform .22s ease, box-shadow .22s ease;position:relative;
+  }
+  .episode-card:hover{transform:translateY(-6px);box-shadow:0 24px 70px rgba(0,0,0,0.7)}
+  .episode-card img{width:100%;height:160px;object-fit:cover;display:block}
+  .ep-body{padding:12px;display:flex;flex-direction:column;gap:8px}
+  .ep-title{color:var(--accent1);font-weight:700}
+  .ep-desc{color:rgba(230,230,240,0.85);font-size:13px;min-height:38px}
+  .ep-meta{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:13px}
+  .ep-actions{display:flex;gap:8px;margin-top:8px}
+  .btn{display:inline-block;padding:8px 10px;border-radius:6px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border:1px solid rgba(255,255,255,0.03)}
+  .btn.primary{background:linear-gradient(180deg, rgba(255,40,80,0.12), rgba(255,40,80,0.06));color:#fff;border-color:rgba(255,40,80,0.12)}
+  .btn.ghost{background:transparent;border:1px dashed rgba(255,255,255,0.03);color:var(--accent2)}
+
+  .rating{color:#ffd36b;letter-spacing:1px}
+
+
+  .store-grid{display:grid;grid-template-columns:360px 1fr;gap:18px;align-items:start}
+  .checkout{background:rgba(255,255,255,0.02);padding:14px;border-radius:8px;border:1px solid rgba(255,40,80,0.04)}
+  .checkout label{display:block;font-size:13px;color:var(--muted);margin-bottom:10px}
+  .checkout input,.checkout select{width:100%;padding:8px;border-radius:6px;background:#0e0d10;border:1px solid rgba(255,255,255,0.03);color:#fff}
+  .error{color:#ff8aa6;font-size:12px;min-height:16px;margin-top:6px}
+
+  .receipt{background:linear-gradient(180deg, rgba(255,40,80,0.02), transparent);padding:12px;border-radius:8px;border:1px dashed rgba(255,40,80,0.06);white-space:pre-wrap;color:var(--muted)}
+
+
+  .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:1200}
+  .modal[aria-hidden="false"]{display:flex}
+  .modal-backdrop{position:absolute;inset:0;background:rgba(0,0,0,0.88)}
+  .modal-panel{position:relative;background:#0b0a0c;border-radius:8px;padding:16px;width:min(980px,94%);max-height:86vh;overflow:auto;border:1px solid rgba(255,40,80,0.06)}
+  .modal-close{position:absolute;right:12px;top:10px;background:transparent;border:0;color:var(--muted);font-size:18px}
+
+
+  .forum-post{background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);border-left:4px solid rgba(255,40,80,0.12);padding:12px;border-radius:6px;margin-bottom:10px}
+  .forum-meta{font-size:12px;color:var(--muted);margin-bottom:6px}
+  .forum-user{color:var(--accent2);font-weight:700;margin-right:8px}
+
+
+  .gallery-container {
+    margin-top: 22px;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 1px solid rgba(255,40,80,0.06);
+    background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+  }
+  
+  .gallery-title {
+    text-align: center;
+    color: var(--accent2);
+    margin-bottom: 12px;
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+  
+  .gallery-slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 500px;
+  }
+  
+  .gallery-slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 20px;
+  }
+  
+  .gallery-slide img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    filter: brightness(0.9);
+  }
+  
+  .gallery-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.7);
+    color: white;
+    border: none;
+    padding: 15px 18px;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s;
+    font-size: 20px;
+    border-radius: 4px;
+  }
+  
+  .gallery-nav:hover {
+    background: rgba(255,40,80,0.8);
+    transform: translateY(-50%) scale(1.1);
+  }
+  
+  .gallery-prev {
+    left: 20px;
+  }
+  
+  .gallery-next {
+    right: 20px;
+  }
+  
+  .gallery-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 16px;
+    padding: 12px;
+  }
+  
+  .gallery-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .gallery-dot.active {
+    background: var(--accent1);
+    transform: scale(1.2);
+  }
+  
+  .gallery-dot:hover {
+    background: var(--accent2);
+  }
+
+
+  @media (max-width: 920px) {
+    .hero{flex-direction:column-reverse}
+    .hero-right{width:100%;display:flex;justify-content:center}
+    .lead{max-width:100%}
+    .store-grid{grid-template-columns:1fr}
+    .episodes-grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+    .gallery-slides { height: 350px; }
+    .gallery-nav { padding: 12px 15px; font-size: 18px; }
+  }
+
+  @media (max-width: 768px) {
+    header { flex-direction: column; gap: 16px; }
+    nav ul { flex-wrap: wrap; justify-content: center; }
+    .hero-title { font-size: 32px; }
+    .poster { width: 220px; height: 300px; }
+    .gallery-slides { height: 300px; }
+  }
+
+  @media (max-width: 480px) {
+    .gallery-slides { height: 250px; padding: 10px; }
+    .gallery-nav { padding: 10px 12px; font-size: 16px; }
+    .gallery-prev { left: 10px; }
+    .gallery-next { right: 10px; }
+    .hero-title { font-size: 28px; }
+    .poster { width: 200px; height: 280px; }
+    .page-wrap { padding: 12px; }
+  }
+
+  @media (max-width: 360px) {
+    .gallery-slides { height: 220px; }
+    .hero-title { font-size: 24px; }
+    .poster { width: 180px; height: 250px; }
+  }
+
+
+  .pulse {
+    animation: pulsey 3s infinite;
+  }
+  @keyframes pulsey {
+    0%{transform:translateY(0)}
+    50%{transform:translateY(-3px)}
+    100%{transform:translateY(0)}
+  }
+  </style>
+</head>
+<body>
+  <div class="fog" aria-hidden="true"></div>
+
+  <div class="page-wrap">
+    <header>
+      <div class="brand">
+        <div class="logo" data-text="FEARS TO FATHOM">FEARS TO FATHOM</div>
+        <div class="slogan">— dread. discover. decide. —</div>
+      </div>
+
+      <nav aria-label="Главная навигация">
+        <ul>
+          <li><a href="#" class="nav-link" data-section="home">Главная</a></li>
+          <li><a href="#" class="nav-link" data-section="episodes">Эпизоды</a></li>
+          <li><a href="#" class="nav-link" data-section="store">Магазин</a></li>
+          <li><a href="#" class="nav-link" data-section="videos">Видео</a></li>
+          <li><a href="#" class="nav-link" data-section="contacts">Контакты</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HOME -->
+      <section id="home" class="active container" aria-labelledby="home-title">
+        <div class="hero">
+          <div class="hero-left">
+            <div class="hero-title glitch" data-text="FEARS TO FATHOM">FEARS TO FATHOM</div>
+            <p class="lead">Инди-хоррор антология — короткие истории, одна ночь, одно место. Решения значат всё. Добро пожаловать в мир, где стены шепчут.</p>
+            <div class="hero-cta">
+              <button id="exploreBtn" class="cta">Исследовать эпизоды</button>
+              <button class="cta ghost" data-section="videos">Смотреть трейлер</button>
+            </div>
+          </div>
+
+          <div class="hero-right">
+            <div class="poster pulse" aria-hidden="true">
+              <div class="stamp">NEW</div>
+              <div class="big">FTF</div>
+              <img class="poster-image" src="home.png" alt="Fears to Fathom poster">
+            </div>
+          </div>
+        </div>
+
+        <div class="container" style="display:grid;grid-template-columns:1.25fr .75fr; gap:14px; align-items:start; margin-top:18px;">
+          <article style="background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent); padding:14px; border-radius:8px; border:1px solid rgba(255,255,255,0.03);">
+            <h2 class="section-title">О нас</h2>
+            <p>Мы — студия, делающая тёмные, атмосферные эпизоды: минимализм локаций, нагнетающая музыка и напряжение. Наша цель — погрузить игрока в историю и не отпускать до конца.</p>
+          </article>
+
+          <aside style="display:flex;flex-direction:column;gap:10px;">
+            <div style="background:linear-gradient(180deg, rgba(0,0,0,0.25), transparent); padding:12px; border-radius:8px; border:1px solid rgba(255,40,80,0.03)">
+              <h3 style="margin:0 0 6px;color:var(--accent2)">Новости</h3>
+              <ul style="list-style:none;padding:0;margin:0;color:var(--muted);font-size:13px">
+                <li>• Carson House — релиз 2025</li>
+                <li>• Трейлер обновлён</li>
+                <li>• Мерч и постеры — скоро</li>
+              </ul>
+            </div>
+
+            <div style="background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent); padding:12px; border-radius:8px; border:1px solid rgba(255,255,255,0.03)">
+              <h3 style="margin:0 0 6px;color:var(--accent2)">Отзывы</h3>
+              <div style="font-size:13px;color:var(--muted)">«Держит в напряжении. Музыка — обалденная.» — E.</div>
+              <div style="font-size:13px;color:var(--muted)">«Любимый сайт по фирсу.» — А.</div>
+              <div style="font-size:13px;color:var(--muted)">«Самые адекватные цены.» — М.</div>
+            </div>
+          </aside>
+        </div>
+
+        <!-- Галерея скриншотов -->
+        <div class="gallery-container">
+          <h3 class="gallery-title">Галерея скриншотов</h3>
+          <div class="gallery-slides" id="gallerySlides">
+          </div>
+          <button class="gallery-nav gallery-prev" id="galleryPrev">‹</button>
+          <button class="gallery-nav gallery-next" id="galleryNext">›</button>
+          <div class="gallery-dots" id="galleryDots"></div>
+        </div>
+      </section>
+
+      <!-- EPISODES -->
+      <section id="episodes" class="container" aria-labelledby="episodes-title">
+        <h2 class="section-title" id="episodes-title">Эпизоды</h2>
+        <div class="episodes-grid" id="episodesGrid">
+          <article class="episode-card" data-episode="Home Alone">
+            <img src="home.png" alt="Home Alone poster">
+            <div class="ep-body">
+              <div class="ep-title">Episode 1 — Home Alone</div>
+              <div class="ep-desc">В первом эпизоде Fears to Fathom вы играете за Майлза, 14-летнего подростка, который остался дома один, пока его родители были в отъезде по работе. По мере развития сюжета он оказывается в затруднительном положении. Сможет ли он пережить эту ночь?</div>
+              <div class="ep-meta"><div class="price">₽199</div><div class="rating">★★★★☆</div></div>
+              <div class="ep-actions">
+                <button class="btn ghost detail-btn" data-episode="Home Alone">Подробнее</button>
+                <button class="btn primary buy-btn" data-episode="Home Alone">Купить</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="episode-card" data-episode="Norwood Hitchhike">
+            <img src="nortwood.png" alt="Norwood Hitchhike poster">
+            <div class="ep-body">
+              <div class="ep-title">Episode 2 — Norwood Hitchhike</div>
+              <div class="ep-desc">Во втором эпизоде Fears to Fathom вы играете за Холли Гарднер, 19-летнюю девушку, которая возвращалась домой с игровой конференции. Из-за ужасных пробок она решила поехать длинным путём, чтобы избежать заторов, и это привело к незапланированной поездке в мотель. Она и представить себе не могла, что происходит в Норвуд-Вэлли.</div>
+              <div class="ep-meta"><div class="price">₽249</div><div class="rating">★★★★☆</div></div>
+              <div class="ep-actions">
+                <button class="btn ghost detail-btn" data-episode="Norwood Hitchhike">Подробнее</button>
+                <button class="btn primary buy-btn" data-episode="Norwood Hitchhike">Купить</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="episode-card" data-episode="Carson House">
+            <img src="carson.png" alt="Carson House poster">
+            <div class="ep-body">
+              <div class="ep-title">Episode 3 — Carson House</div>
+              <div class="ep-desc">В третьем эпизоде Fears to Fathom вы играете за Ноа Бейкера, 18-летнего парня, которому предложили небольшую подработку: присмотреть за домом главного операционного директора местной медиакомпании в выходные. Он соглашается, потому что в эти выходные у него не было никаких интересных планов. Вскоре он начинает замечать что-то тревожное в этом месте. Он и представить себе не мог, что его ждёт.</div>
+              <div class="ep-meta"><div class="price">₽299</div><div class="rating">★★★★★</div></div>
+              <div class="ep-actions">
+                <button class="btn ghost detail-btn" data-episode="Carson House">Подробнее</button>
+                <button class="btn primary buy-btn" data-episode="Carson House">Купить</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="episode-card" data-episode="Ironbark Lookout">
+            <img src="ironbark.png" alt="Ironbark Lookout poster">
+            <div class="ep-body">
+              <div class="ep-title">Episode 4 — Ironbark Lookout</div>
+              <div class="ep-desc">В четвёртом эпизоде Fears to Fathom вы играете за Джека Нельсона, 24-летнего пожарного, которого перевели на новую заставу. Обустраиваясь в своём новом доме, он не мог избавиться от ощущения, что что-то не так. Он и представить себе не мог, что происходит в государственном парке Айронбарк.</div>
+              <div class="ep-meta"><div class="price">₽279</div><div class="rating">★★★★☆</div></div>
+              <div class="ep-actions">
+                <button class="btn ghost detail-btn" data-episode="Ironbark Lookout">Подробнее</button>
+                <button class="btn primary buy-btn" data-episode="Ironbark Lookout">Купить</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="episode-card" data-episode="Woodbury Getaway">
+            <img src="woodbury.png" alt="Woodbury Getaway poster">
+            <div class="ep-body">
+              <div class="ep-title">Episode 5 — Woodbury Getaway</div>
+              <div class="ep-desc">В пятом эпизоде Fears to Fathom вы играете за Сидни Харпер, 23-летнюю девушку, которая работает в консалтинговой фирме и планирует провести выходные в арендованном доме в Вудбери со своими друзьями по колледжу. Она и представить себе не могла, что произойдёт во время их поездки.</div>
+              <div class="ep-meta"><div class="price">₽259</div><div class="rating">★★★★☆</div></div>
+              <div class="ep-actions">
+                <button class="btn ghost detail-btn" data-episode="Woodbury Getaway">Подробнее</button>
+                <button class="btn primary buy-btn" data-episode="Woodbury Getaway">Купить</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- STORE -->
+      <section id="store" class="container" aria-labelledby="store-title">
+        <h2 class="section-title" id="store-title">Оформление покупки</h2>
+        <div class="store-grid">
+          <form id="purchaseForm" class="checkout" novalidate>
+            <label>Имя
+              <input id="name" type="text" placeholder="Иван Иванов" required>
+              <div id="nameError" class="error" aria-live="polite"></div>
+            </label>
+
+            <label>E-mail
+              <input id="email" type="email" placeholder="user@example.com" required>
+              <div id="emailError" class="error" aria-live="polite"></div>
+            </label>
+
+            <label>Телефон
+              <input id="phone" type="tel" placeholder="+375-29-123-45-67" required>
+              <div id="phoneError" class="error" aria-live="polite"></div>
+            </label>
+
+            <label>Пол
+              <select id="gender" required>
+                <option value="">Выберите</option>
+                <option value="m">Мужской</option>
+                <option value="f">Женский</option>
+              </select>
+            </label>
+
+            <label>Эпизод
+              <input id="episode" type="text" readonly placeholder="Выберите эпизод в разделе Эпизоды">
+            </label>
+
+            <div style="margin-top:12px;">
+              <button id="submitBtn" class="btn primary" type="submit" disabled>Подтвердить покупку</button>
+            </div>
+          </form>
+
+          <div id="result" class="receipt" hidden aria-live="polite"></div>
+        </div>
+      </section>
+
+      <!-- VIDEOS -->
+      <section id="videos" class="container" aria-labelledby="videos-title">
+        <h2 class="section-title" id="videos-title">Трейлер</h2>
+        <div style="max-width:900px;margin:0 auto;border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,0.03)">
+          <iframe width="100%" height="480" src="https://www.youtube.com/embed/zTYUfW0OwGM?rel=0" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </section>
+
+      <!-- CONTACTS -->
+      <section id="contacts" class="container" aria-labelledby="contacts-title">
+        <h2 class="section-title" id="contacts-title">Контакты</h2>
+        <p>Автор: Луцик Анастасия — группа Т-291, 2025</p>
+        <p>GitHub: <a href="https://github.com/gohsencursed" target="_blank" rel="noopener">github.com</a></p>
+        <p>TG: <a href="https://t.me/noonewillhearmycries" target="_blank" rel="noopener">ТЕЛЕГА</a></p>
+        <p>INST: <a href="https://instagram.com/gohsenpums__" target="_blank" rel="noopener">ИНСТА</a></p>
+      </section>
+    </main>
+
+    <footer style="margin-top:22px;text-align:center;color:rgba(255,255,255,0.6)">&copy; 2025 FEARS TO FATHOM — Инди-хоррор</footer>
+  </div>
+
+
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" data-close aria-label="Закрыть">✕</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+
+    const $ = sel => document.querySelector(sel);
+    const $$ = sel => Array.from(document.querySelectorAll(sel));
+
+
+    const GALLERY_IMAGES = [
+      'Gael_notices_Sydney_while_playing_his_video_game_in_his_PSP_Fears_to_Fathom.webp',
+      'The_coworker_annoyed_by_Sydney_bothering_him_Fears_to_Fathom.webp',
+      'Tower_11_Fears_to_Fathom.webp',
+      'A_stalker_spying_on_Holly_Fears_to_Fathom.webp',
+      'Rent-a-Cabin_site_where_Woodbury_being_in_the_list_Fears_to_Fathom.webp'
+    ];
+
+
+    const EPISODES = {
+      "Home Alone": {
+        title: "Episode 1 — Home Alone",
+        price: "₽199",
+        rating: "★★★★☆",
+        desc: "Один дома. Родители уехали. Вечером начинают происходить странные вещи. Кто-то явно рядом. Основано на истории подростка, столкнувшегося с незнакомцем в собственном доме.",
+        poster: "home.png",
+        characters: [
+          {name: "Intruder", role: "Антагонист", bio: "Неизвестный мужчина, проникший в дом Майлза. Имя, мотивы и личность не раскрываются. Он появляется внезапно, наблюдает из тени, а затем пытается проникнуть внутрь. Игрок может заметить его в окне, в саду, в дверном проёме — если быть внимательным. Главный антагонист эпизода.", photo: "intruder.webp"},
+          {name: "Miles", role: "Главный герой", bio: "Подросток, 14 лет. Остался один дома на ночь. Не герой, не искатель приключений — просто ребёнок, оказавшийся в ситуации, которую никто не предусмотрел. Он слышит шаги, замечает движение, и должен решить: спрятаться или действовать.", photo: "Miles.webp"}
+        ],
+        forum: [
+          {user: "nocturne", date: "2025-02-14", text: "Игра жуткая. Лучшее — звук. Музыка пробирает.", rating: 5},
+          {user: "lilith", date: "2025-02-15", text: "Первый эпизод очень атмосферный, но хотелось бы побольше загадок.", rating: 4}
+        ]
+      },
+      "Norwood Hitchhike": {
+        title: "Episode 2 — Norwood Hitchhike",
+        price: "₽249",
+        rating: "★★★★☆",
+        desc: "Попутка, которую не стоило ловить. Девушка возвращается с фестиваля, застревает на трассе и принимает помощь от незнакомца. История о доверии, инстинктах и том, как легко оказаться в ловушке.",
+        poster: "nortwood.png",
+        characters: [
+          {name: "Holly Gardner", role: "Пассажирка/Главная героиня", bio: "Студентка, 19 лет. Возвращается с фестиваля, едет одна. Выбирает объезд, застревает на трассе, принимает помощь от незнакомца. Сначала всё спокойно. Потом — нет. Она не ошибается. Просто слишком поздно понимает, что доверие — не всегда благо.", photo: null},
+          {name: "Hitchhiker", role: "Водитель", bio: "Мужчина, предлагающий подвезти Холли. Вежливый, спокойный, говорит мало. Но с каждой минутой становится ясно — он не тот, за кого себя выдаёт. Он не нападает сразу. Он наблюдает, проверяет, ждёт. Угроза — не в действиях, а в ощущении, что ты в его власти. Поздно выйти из машины — ты уже внутри.", photo: "Strange_man.webp"}
+        ],
+        forum: [
+          {user: "roadkill", date: "2025-03-01", text: "Очень кинематографично. Ночью эффект страха удваивается.", rating: 5},
+          {user: "dmitry_88", date: "2025-03-03", text: "Некоторые сцены заставили меня включить свет... оч круто.", rating: 4}
+        ]
+      },
+      "Carson House": {
+        title: "Episode 3 — Carson House",
+        price: "₽299",
+        rating: "★★★★★",
+        desc: "Работа няней в доме политика. Всё кажется обычным, но с наступлением ночи ты понимаешь — за тобой наблюдают. Эпизод о вторжении в личное пространство и скрытых угрозах в, казалось бы, безопасной среде.",
+        poster: "carson.png",
+        characters: [
+          {name: "Noah Baker", role: "Главный герой", bio: "Студент, 18 лет. Подработка — присмотреть за домом влиятельного человека. Дом пуст, хозяин в отъезде. Но камеры включаются сами. Он замечает детали, слышит звуки, чувствует, что не один. Вопрос не в том, кто рядом. Вопрос — зачем он здесь.", photo: null},
+          {name: "Cara", role: "Антагонистка", bio: "Она знает, что ты здесь. Она знает, что ты один. Сначала — странные звонки. Потом — посылки. Потом — она сама. Она не ломится в дверь. Она стоит за ней. Ты не знаешь, кто она. Но она знает всё о тебе.", photo: "Cara.webp"}
+        ],
+        forum: [
+          {user: "ghostwatcher", date: "2025-04-12", text: "Carson House — мастер-класс по напряжению. Финал убил.", rating: 5},
+          {user: "trina", date: "2025-04-13", text: "Лучшее из всего, что видел в антологии.", rating: 5}
+        ]
+      },
+      "Ironbark Lookout": {
+        title: "Episode 4 — Ironbark Lookout",
+        price: "₽279",
+        rating: "★★★★☆",
+        desc: "Ночной дежурный в лесной сторожке. Радио ловит странные сигналы, кто-то бродит в темноте. Изолированная смена превращается в паранойю, когда ты понимаешь, что не один.",
+        poster: "ironbark.png",
+        characters: [
+          {name: "Jack Nelson", role: "Смотритель", bio: "Смотритель, 24 года. Один в лесной сторожке. Работа — ночная смена, рация, наблюдение. Но сигналы странные. Кто-то ходит по лесу. Он не знает, что искать. Но знает — кто-то ищет его.", photo: null},
+          {name: "Unknown Presence", role: "Сектанты", bio: "Ты не видишь его. Но он есть. Сигналы на рации, шаги в лесу, силуэт в темноте. Ты один в сторожке, и кто-то рядом. Он не говорит. Он не двигается открыто. Но ты знаешь: он наблюдает. Ты не знаешь, сколько их. Но ты знаешь — ты не один.", photo: "Cult.webp"}
+        ],
+        forum: [
+          {user: "watchtower", date: "2025-05-02", text: "Идеальная атмосфера — ветер и скрипы.", rating: 4},
+          {user: "nightowl", date: "2025-05-04", text: "Понравилась механика записок.", rating: 4}
+        ]
+      },
+      "Woodbury Getaway": {
+        title: "Episode 5 — Woodbury Getaway",
+        price: "₽259",
+        rating: "★★★★☆",
+        desc: "Выходные в загородном доме. Трое друзей — старая компания, арендованный коттедж, попытка отдохнуть. Но дом не пуст. Кто-то знает, что они здесь.",
+        poster: "woodbury.png",
+        characters: [
+          {name: "Рей", role: "Беглец", bio: "Прячется от прошлого. Мотель — лишь временное убежище.", photo: null},
+          {name: "Селин", role: "Официантка мотеля", bio: "Знает больше, чем говорит.", photo: null}
+        ],
+        forum: [
+          {user: "motelpatron", date: "2025-06-10", text: "Хотелось бы ещё одного уровня в мотеле.", rating: 4},
+          {user: "echo", date: "2025-06-12", text: "Зеркальные сцены — кошмарно хорошо.", rating: 5}
+        ]
+      }
+    };
+
+
+    let currentSlide = 0;
+    let autoSlideInterval;
+    let isTransitioning = false;
+
+    function initGallery() {
+      const gallerySlides = $('#gallerySlides');
+      const galleryPrev = $('#galleryPrev');
+      const galleryNext = $('#galleryNext');
+      const galleryDots = $('#galleryDots');
+      
+      function renderGallery() {
+        gallerySlides.innerHTML = '';
+        galleryDots.innerHTML = '';
+        
+        GALLERY_IMAGES.forEach((image, index) => {
+          const slide = document.createElement('div');
+          slide.className = 'gallery-slide';
+          
+          const img = document.createElement('img');
+          img.src = image;
+          img.alt = `Скриншот ${index + 1}`;
+          img.loading = 'lazy';
+          
+          slide.appendChild(img);
+          gallerySlides.appendChild(slide);
+          
+
+          const dot = document.createElement('button');
+          dot.className = 'gallery-dot';
+          dot.setAttribute('aria-label', `Перейти к слайду ${index + 1}`);
+          dot.addEventListener('click', () => goToSlide(index));
+          galleryDots.appendChild(dot);
+        });
+        
+        updateGallery();
+      }
+      
+      function updateGallery() {
+        gallerySlides.style.transform = `translateX(-${currentSlide * 100}%)`;
+        
+
+        $$('.gallery-dot').forEach((dot, index) => {
+          dot.classList.toggle('active', index === currentSlide);
+        });
+      }
+      
+      function goToSlide(index) {
+        if (isTransitioning || index === currentSlide) return;
+        
+        isTransitioning = true;
+        currentSlide = (index + GALLERY_IMAGES.length) % GALLERY_IMAGES.length;
+        updateGallery();
+        resetAutoSlide();
+        
+
+        setTimeout(() => {
+          isTransitioning = false;
+        }, 500);
+      }
+      
+      function nextSlide() {
+        if (isTransitioning) return;
+        goToSlide(currentSlide + 1);
+      }
+      
+      function prevSlide() {
+        if (isTransitioning) return;
+        goToSlide(currentSlide - 1);
+      }
+      
+      function startAutoSlide() {
+        if (GALLERY_IMAGES.length > 1) {
+          autoSlideInterval = setInterval(nextSlide, 5000);
+        }
+      }
+      
+      function resetAutoSlide() {
+        clearInterval(autoSlideInterval);
+        startAutoSlide();
+      }
+      
+
+      galleryPrev.addEventListener('click', prevSlide);
+      galleryNext.addEventListener('click', nextSlide);
+      
+
+      let startX = 0;
+      let endX = 0;
+      
+      gallerySlides.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+      });
+      
+      gallerySlides.addEventListener('touchend', (e) => {
+        endX = e.changedTouches[0].clientX;
+        handleSwipe();
+      });
+      
+      function handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = startX - endX;
+        
+        if (Math.abs(diff) > swipeThreshold) {
+          if (diff > 0) {
+            nextSlide();
+          } else {
+            prevSlide();
+          }
+        }
+      }
+      
+
+      startAutoSlide();
+      
+
+      gallerySlides.addEventListener('mouseenter', () => {
+        clearInterval(autoSlideInterval);
+      });
+      
+      gallerySlides.addEventListener('mouseleave', () => {
+        startAutoSlide();
+      });
+      
+
+      renderGallery();
+    }
+
+    // --- НАВИГАЦИЯ МЕЖДУ СЕКЦИЯМИ ---
+    const navLinks = $$('.nav-link');
+    const sections = $$('main section');
+
+    function showSection(id) {
+      sections.forEach(s => s.classList.toggle('active', s.id === id));
+      window.scrollTo({top:0,behavior:'smooth'});
+    }
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', ev => {
+        ev.preventDefault();
+        const id = link.dataset.section;
+        if (id) showSection(id);
+      });
+    });
+
+
+    $('#exploreBtn').addEventListener('click', () => showSection('episodes'));
+    $$('.cta.ghost').forEach(b => {
+      b.addEventListener('click', () => {
+        const s = b.dataset.section || 'videos';
+        showSection(s);
+      });
+    });
+
+    // --- MODAL ---
+    const modal = $('#modal');
+    const modalContent = $('#modalContent');
+
+    function openModal(html) {
+      modalContent.innerHTML = html;
+      modal.setAttribute('aria-hidden','false');
+      setTimeout(()=> modal.querySelector('button, a, [tabindex]')?.focus(), 50);
+    }
+    
+    function closeModal() {
+      modal.setAttribute('aria-hidden','true');
+      modalContent.innerHTML = '';
+    }
+    
+    $$( '[data-close]' ).forEach(el => el.addEventListener('click', closeModal));
+    document.addEventListener('keydown', e => { 
+      if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') closeModal(); 
+    });
+
+
+    $$('.detail-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const epKey = btn.dataset.episode;
+        const data = EPISODES[epKey];
+        if (!data) return;
+        
+        const posterSVG = createPosterSVG(epKey);
+        let charsHtml = '';
+        data.characters.forEach(ch => {
+          const photo = ch.photo ? `<img src="${escapeHtml(ch.photo)}" alt="${escapeHtml(ch.name)}" style="width:80px;height:80px;object-fit:cover;border-radius:6px">` :
+                                   `<div style="width:80px;height:80px;border-radius:6px;background:#0a0a0d;display:flex;align-items:center;justify-content:center;color:#666;font-size:12px">photo</div>`;
+          charsHtml += `
+            <div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:8px;">
+              <div>${photo}</div>
+              <div>
+                <div style="font-weight:700;color:var(--accent2)">${escapeHtml(ch.name)} <span style="color:var(--muted);font-weight:400">— ${escapeHtml(ch.role)}</span></div>
+                <div style="color:rgba(220,220,240,0.8);font-size:13px">${escapeHtml(ch.bio)}</div>
+              </div>
+            </div>
+          `;
+        });
+
+        let forumHtml = '';
+        data.forum.forEach(post => {
+          forumHtml += `
+            <div class="forum-post">
+              <div class="forum-meta"><span class="forum-user">${escapeHtml(post.user)}</span><span>${escapeHtml(post.date)}</span> · <span style="color:#ffd36b">${'★'.repeat(post.rating)}</span></div>
+              <div>${escapeHtml(post.text)}</div>
+            </div>
+          `;
+        });
+
+        const html = `
+          <div style="display:flex;gap:18px;align-items:flex-start;">
+            <div style="width:36%;min-width:200px">
+              ${posterSVG}
+              <div style="margin-top:10px;color:var(--accent2);font-weight:700">${escapeHtml(data.price)}</div>
+              <div style="margin-top:6px;color:#ffd36b">${escapeHtml(data.rating)}</div>
+            </div>
+            <div style="flex:1">
+              <h3 id="modalTitle" style="margin-top:0;color:var(--accent1)">${escapeHtml(data.title)}</h3>
+              <p style="color:rgba(230,230,240,0.95)">${escapeHtml(data.desc)}</p>
+              <h4 style="color:var(--accent2);margin-bottom:6px">Персонажи</h4>
+              ${charsHtml}
+              <div style="margin-top:10px;display:flex;gap:8px">
+                <button id="modalBuy" class="btn primary" data-episode="${escapeAttr(epKey)}">Купить</button>
+                <button class="btn ghost" data-close>Закрыть</button>
+              </div>
+
+              <hr style="border:none;border-top:1px dashed rgba(255,255,255,0.04);margin:12px 0">
+
+              <h4 style="color:var(--accent2);margin-bottom:6px">Форум — обсуждение эпизода</h4>
+              ${forumHtml}
+              <div style="margin-top:8px">
+                <a href="#" id="forumLink" style="color:var(--accent2);text-decoration:underline">Перейти к теме на форуме (демо)</a>
+              </div>
+            </div>
+          </div>
+        `;
+        openModal(html);
+
+        setTimeout(() => {
+          const buyBtn = $('#modalBuy');
+          if (buyBtn) {
+            buyBtn.addEventListener('click', () => {
+              $('#episode').value = buyBtn.dataset.episode;
+              showSection('store');
+              closeModal();
+              setTimeout(()=> $('#name')?.focus(), 200);
+            });
+          }
+          const forumLink = $('#forumLink');
+          if (forumLink) {
+            forumLink.addEventListener('click', (e) => {
+              e.preventDefault();
+              showSection('home');
+              const posts = document.querySelectorAll('.forum-post');
+              if (posts.length) {
+                posts[0].style.boxShadow = '0 0 18px rgba(255,40,80,0.16)';
+                setTimeout(()=> posts[0].style.boxShadow = '', 2200);
+                posts[0].scrollIntoView({behavior:'smooth', block:'center'});
+              }
+            });
+          }
+        }, 40);
+      });
+    });
+
+
+    $$('.buy-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const ep = btn.dataset.episode;
+        $('#episode').value = ep;
+        showSection('store');
+        setTimeout(()=> $('#name')?.focus(), 200);
+      });
+    });
+
+    // --- ФОРМА ПОКУПКИ ---
+    const form = $('#purchaseForm');
+    const nameInp = $('#name'), emailInp = $('#email'), phoneInp = $('#phone'), genderSel = $('#gender'), episodeInp = $('#episode');
+    const submitBtn = $('#submitBtn');
+    const resultBlock = $('#result');
+
+    function validateName(){
+      const v = (nameInp.value || '').trim();
+      const ok = v.length >= 3;
+      $('#nameError').textContent = ok ? '' : 'Имя: минимум 3 символа';
+      return ok;
+    }
+    
+    function validateEmail(){
+      const v = (emailInp.value || '').trim();
+      const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+      $('#emailError').textContent = ok ? '' : 'Неверный формат e-mail';
+      return ok;
+    }
+    
+    function validatePhone(){
+      const v = (phoneInp.value || '').trim();
+      const ok = /^(\+375-\d{2}-\d{3}-\d{2}-\d{2}|8\(\d+\)\d{2}-\d{3}-\d{2}-\d{2}|\+?\d{7,15})$/.test(v);
+      $('#phoneError').textContent = ok ? '' : 'Телефон: +375-xx-xxx-xx-xx или международный';
+      return ok;
+    }
+    
+    function validateGender(){
+      const v = genderSel.value;
+      return v === 'm' || v === 'f';
+    }
+    
+    function updateSubmitState(){
+      const ok = validateName() && validateEmail() && validatePhone() && validateGender();
+      submitBtn.disabled = !ok;
+    }
+    
+    [nameInp, emailInp, phoneInp, genderSel].forEach(el => {
+      if (!el) return;
+      el.addEventListener('input', updateSubmitState);
+      el.addEventListener('blur', updateSubmitState);
+    });
+
+    function rand4(){ return Math.random().toString(36).substring(2,6).toUpperCase(); }
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      if (!validateName() || !validateEmail() || !validatePhone() || !validateGender()) { 
+        updateSubmitState(); 
+        return; 
+      }
+      const episode = (episodeInp.value || '—');
+      const key = `FTF-${rand4()}-${rand4()}-${rand4()}`;
+      const receipt = `==== RECEIPT ====\nFears to Fathom\nEpisode: ${episode}\nBuyer: ${nameInp.value.trim()}\nKey: ${key}\n=================\nСпасибо за покупку!`;
+      resultBlock.hidden = false;
+      resultBlock.textContent = receipt;
+      resultBlock.scrollIntoView({behavior:'smooth'});
+      submitBtn.disabled = true;
+    });
+
+
+    (function renderHomeForum(){
+      const home = $('#home');
+      if (!home) return;
+      const forumWrap = document.createElement('div');
+      forumWrap.style.marginTop = '18px';
+      forumWrap.innerHTML = '<h3 style="color:var(--accent2);margin-bottom:8px">Последние обсуждения</h3>';
+      const posts = [
+        {user:'nightshift', date:'2025-06-01', text:'Carson House — это просто адски красиво.'},
+        {user:'shadowfax', date:'2025-06-02', text:'Ironbark меня поймал врасплох, атмосферно.'},
+        {user:'raven', date:'2025-06-05', text:'Люблю, когда звук является персонажем.'}
+      ];
+      posts.forEach(p=>{
+        const el = document.createElement('div');
+        el.className = 'forum-post';
+        el.innerHTML = `<div class="forum-meta"><span class="forum-user">${p.user}</span><span>${p.date}</span></div><div>${p.text}</div>`;
+        forumWrap.appendChild(el);
+      });
+      home.appendChild(forumWrap);
+    })();
+
+
+    $$('.episode-card').forEach(card => {
+      card.tabIndex = 0;
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          card.querySelector('.detail-btn')?.click();
+        }
+      });
+    });
+
+
+    const title = document.querySelector('.hero-title');
+    if (title) {
+      setInterval(() => {
+        const sx = (Math.random()*4-2).toFixed(2);
+        const sy = (Math.random()*4-2).toFixed(2);
+        title.style.textShadow = `${sx}px ${sy}px 6px rgba(255,40,80,0.25), ${-sx}px ${-sy}px 10px rgba(0,230,214,0.06)`;
+      }, 180);
+    }
+
+ 
+    initGallery();
+    showSection('home');
+
+
+    function escapeHtml(s){ return String(s || '').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])); }
+    function escapeAttr(s){ return escapeHtml(s).replace(/"/g, '&quot;'); }
+
+    function createPosterSVG(key) {
+      const ep = EPISODES[key];
+      if(ep.poster) {
+        return `<img src="${escapeHtml(ep.poster)}" alt="${escapeHtml(ep.title)} poster" style="width:100%;border-radius:8px;object-fit:cover">`;
+      }
+      return `<div style="width:100%;height:200px;background:#0a0a0d;display:flex;align-items:center;justify-content:center;color:#666">Poster</div>`;
+    }
+  });
+  </script>
+</body>
+</html>
